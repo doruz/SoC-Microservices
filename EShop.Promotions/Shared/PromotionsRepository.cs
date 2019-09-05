@@ -10,7 +10,7 @@ namespace EShop.Promotions.Shared
 
         public PromotionsRepository()
         {
-            this.promotions = new List<Promotion>
+            promotions = new List<Promotion>
             {
                 new Promotion
                 {
@@ -62,23 +62,23 @@ namespace EShop.Promotions.Shared
 
         public bool DoesPromotionExists(string id)
         {
-            return this.promotions.Any(p => p.Id == id);
+            return promotions.Any(p => p.Id == id);
         }
 
         public void AddPromotion(Promotion promotion)
         {
-            this.promotions.Add(promotion);
+            promotions.Add(promotion);
         }
 
         public void DeleteOldPromotions()
         {
-            this.promotions.RemoveAll(p => p.IsExpired);
+            promotions.RemoveAll(p => p.IsExpired);
         }
 
         public void DeletePromotion(string id)
         {
-            var promotion = this.promotions.First(p => p.Id == id);
-            this.promotions.Remove(promotion);
+            var promotion = promotions.First(p => p.Id == id);
+            promotions.Remove(promotion);
         }
     }
 }

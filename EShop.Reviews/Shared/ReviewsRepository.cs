@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace EShop.Reviews.Shared
 {
-    public class ReviewsRepository
+    public sealed class ReviewsRepository
     {
         private readonly List<ProductReviews> productsReviews;
 
@@ -45,7 +45,7 @@ namespace EShop.Reviews.Shared
             if (productReviews == null)
             {
                 productReviews = new ProductReviews(productId);
-                this.productsReviews.Add(productReviews);
+                productsReviews.Add(productReviews);
             }
 
             productReviews.AddReview(review);

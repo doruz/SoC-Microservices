@@ -26,8 +26,8 @@ namespace EShop.Promotions
             if (oldPromotions.Any())
             {
                 var oldPromotionsAsJson = JsonConvert.SerializeObject(oldPromotions, Formatting.Indented);
-                logger.LogInformation($"Following promotions are removed: {oldPromotionsAsJson}");
-                this.repository.DeleteOldPromotions();
+                logger.LogWarning($"Following promotions are removed: {oldPromotionsAsJson}");
+                repository.DeleteOldPromotions();
             }
             else
             {

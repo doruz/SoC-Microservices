@@ -9,7 +9,7 @@ namespace EShop.Catalog.Shared
 
         public ProductsRepository()
         {
-            this.products = new List<Product>
+            products = new List<Product>
             {
                 new Product(
                     "97773443-140A-4028-8C5C-388FEAE12207",
@@ -25,12 +25,12 @@ namespace EShop.Catalog.Shared
 
         public IEnumerable<Product> GetProducts()
         {
-            return this.products.OrderBy(p => p.Name).ToList();
+            return products.OrderBy(p => p.Name).ToList();
         }
 
         public Product FindProduct(string id)
         {
-            return this.products.FirstOrDefault(p => p.Id == id);
+            return products.FirstOrDefault(p => p.Id == id);
         }
 
         public bool DoesProductExists(string id)
@@ -40,15 +40,15 @@ namespace EShop.Catalog.Shared
 
         public void AddProduct(Product product)
         {
-            this.products.Add(product);
+            products.Add(product);
         }
 
         public void EditProduct(Product product)
         {
             var oldProduct = FindProduct(product.Id);
-            this.products.Remove(oldProduct);
+            products.Remove(oldProduct);
 
-            this.products.Add(product);
+            products.Add(product);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace EShop.Promotions
         [FunctionName("GetPromotions")]
         public IActionResult GetPromotions([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "promotions")] HttpRequest request)
         {
-            return new OkObjectResult(this.repository.GetAll());
+            return new OkObjectResult(repository.GetAll());
         }
 
         [FunctionName("GetCurrentPromotion")]
@@ -51,7 +51,7 @@ namespace EShop.Promotions
                 return new BadRequestObjectResult(promotionRequestValidation);
             }
 
-            this.repository.AddPromotion(new Promotion(promotionRequest));
+            repository.AddPromotion(new Promotion(promotionRequest));
 
             return new NoContentResult();
         }
@@ -59,12 +59,12 @@ namespace EShop.Promotions
         [FunctionName("DeletePromotion")]
         public IActionResult DeletePromotion([HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "promotions/{id}")] HttpRequest request, string id)
         {
-            if (!this.repository.DoesPromotionExists(id))
+            if (!repository.DoesPromotionExists(id))
             {
                 return new NotFoundResult();
             }
 
-            this.repository.DeletePromotion(id);
+            repository.DeletePromotion(id);
 
             return new NoContentResult();
         }

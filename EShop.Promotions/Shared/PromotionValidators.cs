@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace EShop.Promotions.Shared
 {
-    public static class PromotionValidators
+    internal static class PromotionValidators
     {
         public static IEnumerable<string> Validate(this AddPromotionRequestModel promotion)
         {
