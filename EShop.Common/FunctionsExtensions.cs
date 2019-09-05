@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
-namespace EShop.Catalog
+namespace EShop.Common
 {
-    internal static class FunctionsExtensions
+    public static class FunctionsExtensions
     {
         public static async Task<T> DeserializeBody<T>(this HttpRequest request)
         {

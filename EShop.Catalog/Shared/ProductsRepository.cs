@@ -11,8 +11,15 @@ namespace EShop.Catalog.Shared
         {
             this.products = new List<Product>
             {
-                new Product("Clean Code Book", 10.5),
-                new Product("JBL GO Speaker", 100)
+                new Product(
+                    "97773443-140A-4028-8C5C-388FEAE12207",
+                    "Clean Code Book", 
+                    10.5),
+
+                new Product(
+                    "EF254E34-3CEC-4481-988F-B4C0DFCB0E8B", 
+                    "JBL GO Speaker", 
+                    100)
             };
         }
 
