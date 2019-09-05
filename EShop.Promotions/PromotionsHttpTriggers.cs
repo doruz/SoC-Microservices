@@ -51,7 +51,7 @@ namespace EShop.Promotions
                 return new BadRequestObjectResult(promotionRequestValidation);
             }
 
-            repository.AddPromotion(new Promotion(promotionRequest));
+            this.repository.AddPromotion(new Promotion(promotionRequest));
 
             return new NoContentResult();
         }
@@ -59,12 +59,12 @@ namespace EShop.Promotions
         [FunctionName("DeletePromotion")]
         public IActionResult DeletePromotion([HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "promotions/{id}")] HttpRequest request, string id)
         {
-            if (!repository.DoesPromotionExists(id))
+            if (!this.repository.DoesPromotionExists(id))
             {
                 return new NotFoundResult();
             }
 
-            repository.DeletePromotion(id);
+            this.repository.DeletePromotion(id);
 
             return new NoContentResult();
         }
