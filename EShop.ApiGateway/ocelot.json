@@ -1,0 +1,68 @@
+{
+  "ReRoutes": [
+    // ReRoute to "Catalog Service"
+    {
+      "DownstreamPathTemplate": "/api/products",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "{{CatalogServiceURL}}",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/products"
+    },
+    {
+      "DownstreamPathTemplate": "/api/products{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "{{CatalogServiceURL}}",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/products{everything}"
+    },
+
+    // ReRoute to "Promotions Service"
+    {
+      "DownstreamPathTemplate": "/api/promotions",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "{{PromotionsServiceUrl}}",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/promotions"
+    },
+    {
+      "DownstreamPathTemplate": "/api/promotions{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "{{PromotionsServiceUrl}}",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/promotions{everything}"
+    },
+
+    // ReRoute to "Reviews Service"
+    {
+      "DownstreamPathTemplate": "/api/reviews/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "{{ReviewsServiceUrl}}",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/reviews/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "{{ApiGatewayBaseUrl}}"
+  }
+}
