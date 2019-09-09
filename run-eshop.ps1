@@ -1,1 +1,0 @@
-Start-Process -Verb runas "cmd.exe" "dotnet run --project Eshop.Catalog";
