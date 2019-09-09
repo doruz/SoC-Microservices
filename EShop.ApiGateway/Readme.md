@@ -1,4 +1,6 @@
-﻿# Expose through API Gatewat following Microservices
+﻿# Expose through API Gateway following microservices
+
+For creating the Gateway [Ocelot](https://ocelot.readthedocs.io/en/latest/index.html) was used.
 
 ## Catalog Service:
 
