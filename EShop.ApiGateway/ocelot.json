@@ -24,7 +24,7 @@
       "UpstreamPathTemplate": "/api/products{everything}"
     },
 
-    // ReRoute to "Promotions Service"
+    // ReRoute to "Products Service"
     {
       "DownstreamPathTemplate": "/api/promotions",
       "DownstreamScheme": "http",
@@ -60,6 +60,57 @@
       ],
       "UpstreamPathTemplate": "/api/reviews/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+
+    // ReRoutes used for aggregating the product details and reviews
+    {
+      "Key": "ProductDetails",
+      "DownstreamPathTemplate": "/api/products/{productId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "{{CatalogServiceURL}}",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/products/{productId}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "Key": "ProductCurrentPromotion",
+      "DownstreamPathTemplate": "/api/promotions/{productId}/current",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "{{PromotionsServiceUrl}}",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/promotions/{productId}/current"
+    },
+    {
+      "Key": "ProductReviewsSummary",
+      "DownstreamPathTemplate": "/api/reviews/{productId}/summary",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "{{ReviewsServiceUrl}}",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/reviews/{productId}/summary",
+      "UpstreamHttpMethod": [ "GET" ]
+    }
+  ],
+  "Aggregates": [
+    {
+      "ReRouteKeys": [
+        "ProductDetails",
+        "ProductReviewsSummary",
+        "ProductCurrentPromotion"
+      ],
+      "UpstreamPathTemplate": "/api/catalog/{productId}",
+      "UpstreamHttpMethod": [ "GET" ]
     }
   ],
   "GlobalConfiguration": {

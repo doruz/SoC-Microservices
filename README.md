@@ -7,6 +7,7 @@
 * [Postman](https://www.getpostman.com/downloads/)
 
 ## Running the solution
+* Build solution.
 * Open a console in the directory where the solution is mapped.
 * Run <strong>run-eshop.bat</strong> and all different services will start in their own consoles.   
 * If everythings works ok, you'll be able to call the APIs using a tool like <strong>Postman</strong>.

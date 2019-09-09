@@ -77,6 +77,18 @@
       "UpstreamHttpMethod": [ "GET" ]
     },
     {
+      "Key": "ProductCurrentPromotion", 
+      "DownstreamPathTemplate": "/api/promotions/{productId}/current",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/api/promotions/{productId}/current"
+    },
+    {
       "Key": "ProductReviewsSummary",
       "DownstreamPathTemplate": "/api/reviews/{productId}/summary",
       "DownstreamScheme": "http",
@@ -94,7 +106,8 @@
     {
       "ReRouteKeys": [
         "ProductDetails",
-        "ProductReviewsSummary"
+        "ProductReviewsSummary",
+        "ProductCurrentPromotion"
       ],
       "UpstreamPathTemplate": "/api/catalog/{productId}",
       "UpstreamHttpMethod": [ "GET" ]
