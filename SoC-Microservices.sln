@@ -15,11 +15,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{22DC1513-5FAB-45BF-A350-B96451E024B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShop.ApiGateway", "EShop.ApiGateway\EShop.ApiGateway.csproj", "{F6082746-23B0-4068-870B-9F11C3976284}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShop.ApiGateway", "EShop.ApiGateway\EShop.ApiGateway.csproj", "{F6082746-23B0-4068-870B-9F11C3976284}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C9AE02CE-A318-4B03-AE0E-E335C8B798DF}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		run-eshop.bat = run-eshop.bat
 	EndProjectSection
 EndProject
 Global

@@ -58,7 +58,46 @@
           "Port": 5003
         }
       ],
-      "UpstreamPathTemplate": "/api/reviews/{everything}"
+      "UpstreamPathTemplate": "/api/reviews/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+
+    // ReRoutes used for aggregating the product details and reviews
+    {
+      "Key": "ProductDetails",
+      "DownstreamPathTemplate": "/api/products/{productId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/api/products/{productId}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "Key": "ProductReviewsSummary",
+      "DownstreamPathTemplate": "/api/reviews/{productId}/summary",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5003
+        }
+      ],
+      "UpstreamPathTemplate": "/api/reviews/{productId}/summary",
+      "UpstreamHttpMethod": [ "GET" ]
+    }
+  ],
+  "Aggregates": [
+    {
+      "ReRouteKeys": [
+        "ProductDetails",
+        "ProductReviewsSummary"
+      ],
+      "UpstreamPathTemplate": "/api/catalog/{productId}",
+      "UpstreamHttpMethod": [ "GET" ]
     }
   ],
   "GlobalConfiguration": {
