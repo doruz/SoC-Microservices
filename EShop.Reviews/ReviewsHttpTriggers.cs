@@ -44,7 +44,7 @@ namespace EShop.Reviews
 
             repository.AddProductReview(productId, review);
 
-            return new NoContentResult();
+            return ActionResults.Created();
         }
     }
 }

@@ -53,7 +53,7 @@ namespace EShop.Promotions
 
             repository.AddPromotion(new Promotion(promotionRequest));
 
-            return new NoContentResult();
+            return ActionResults.Created();
         }
 
         [FunctionName("DeletePromotion")]
