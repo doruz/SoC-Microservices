@@ -1,9 +1,11 @@
 # SoC Microservices in Azure
 
 ## Tools
-* [Install latest version of .NET Core 2.2 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2)
-* [Getting started with Azure Functions in VS Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
-* [Using Ocelot to create the API Gateway](https://ocelot.readthedocs.io/en/latest/index.html)
+* For <strong>Visual Studio Code</strong> or <strong>Visual Studio 2019</strong> you can install the latest version of .NET Core 2.2 from [here](https://dotnet.microsoft.com/download/dotnet-core/2.2).
+* For <strong>Visual Studio 2017</strong> you need to install the compatible .NET Core 2.2 SDK from [here](https://dotnet.microsoft.com/download/visual-studio-sdks).
+
+* [Getting started with Azure Functions in VS Code.](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
+* [Using Ocelot to create the API Gateway.](https://ocelot.readthedocs.io/en/latest/index.html)
 * [Postman](https://www.getpostman.com/downloads/)
 
 ## Running the solution
